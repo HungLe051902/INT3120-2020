@@ -1,21 +1,26 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import TabBar from './Components/TabBar'
+import { StyleSheet } from 'react-native';
+import Splash from './components/SplashScreen';
+import Main from './components/Main';
 
+export default class App extends Component {
+  constructor(props) {
+    super(props);
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <TabBar />
-    </View>
-  );
+    this.state = { isLoading: true };
+
+    setTimeout(()=>{
+
+      this.setState({ isLoading: false })
+    }, 3000)
+  }
+  render() {
+    if (this.state.isLoading) {
+      return <Splash />;
+    } else {
+      return <Main />; 
+    }
+  };
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  searchBar: {
-    flex: 1
-  }
-});
+
