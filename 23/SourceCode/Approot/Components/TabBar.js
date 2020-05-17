@@ -66,7 +66,7 @@ export default class TabBar extends Component {
     }
 }
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
     icon:{
         width: 24,
         height: 24
